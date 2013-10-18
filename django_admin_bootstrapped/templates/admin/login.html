@@ -22,13 +22,15 @@
         box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 .form-signin-inner{
-    padding: 19px 29px 29px;
+    padding: 10px 29px 29px;
 }
 .form-signin .form-signin-heading, .form-signin .checkbox {
     margin-bottom: 10px;
 }
 .form-signin .form-actions{
     margin: 0;
+    padding: 0px 29px 29px;
+
 }
 }
 </style>
@@ -36,7 +38,7 @@
 
 {% block content %}
 <div id="content-main">
-<form class="form-signin form-horizontal" action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+<form class="form-signin" action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
   <div class="form-signin-inner">
   {% blocktrans %}<h2>Login</h2>{% endblocktrans %}
   {% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}

@@ -7,11 +7,7 @@
 
 {% block bodyclass %}dashboard{% endblock %}
 
-{% block breadcrumbs %}
-<ul class="breadcrumb">
-<li>{% trans 'Home' %}</li>
-</ul>
-{% endblock %}
+{% block breadcrumbs %}{% endblock %}
 
 {% block object-tools %}
 <ul class="nav">
@@ -42,7 +38,7 @@
 
 {% block content %}
 <div class="row-fluid">
-    <div id="content-main" class="span12">
+    <div id="content-main" class="col-lg-offset-2 col-8 col-sm-8 col-lg-8">
 
         <div class="tabbable">
             {% for app in app_list %}
