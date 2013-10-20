@@ -4,6 +4,7 @@
 {% load admin_urls %}
 
 {% block extrastyle %}
+
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}" />
   {% if cl.formset %}
@@ -49,11 +50,9 @@
     <ul class="object-tools form-inline pull-left inline">
         {% block object-tools-items %}
         {% if has_add_permission %}
-        <li>
-        <a href="{% url cl.opts|admin_urlname:'add' %}{% if is_popup %}?_popup=1{% endif %}" class="btn btn-primary">
+        <a href="{% url cl.opts|admin_urlname:'add' %}{% if is_popup %}?_popup=1{% endif %}" class="btn btn-primary btn-margin">
             <i class="icon-plus icon-white"></i> {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
         </a>
-        </li>
         {% endif %}
         {% endblock %}
         {% comment %} {% if action_form and actions_on_top and cl.full_result_count %}
@@ -98,7 +97,7 @@
         {% render_with_template_if_exist cl.opts.app_label|lower|add:"/admin_app_"|add:app_name|add:"_description.html" "" %}
     {% endwith %}
 
-    <div class="span12">
+    <div class="col-lg-offset-1 col-lg-10">
 
         <div id="content-main" class="row-fluid">
             <div class="module{% if cl.has_filters %} filtered{% endif %}" id="_changelist">

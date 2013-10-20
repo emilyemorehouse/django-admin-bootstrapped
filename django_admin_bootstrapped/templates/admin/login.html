@@ -37,7 +37,8 @@
 {% endblock %}
 
 {% block content %}
-<div id="content-main">
+<br><br>
+<div id="panel">
 <form class="form-signin" action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
   <div class="form-signin-inner">
   {% blocktrans %}<h2>Login</h2>{% endblocktrans %}
@@ -53,26 +54,31 @@
     </div>
     {% endfor %}
   {% endif %}
-  <div class="control-group">
-    <div class="control-label">
-        <label for="id_username" class="required">{% trans 'Username:' %}</label> 
-    </div>
-    <div class="controls">
-        {{ form.username }}
+
+
+
+
+
+
+
+  <div class="form-group">
+    <label class="control-label " for="id_username">Username</label>
+    <div class="">
+        <input class="form-control" id="id_username" maxlength="254" name="username" type="text" />
         {% if not form.this_is_the_login_form.errors %}<span class="help-inline">{{ form.username.errors|striptags }}</span>{% endif %}
     </div>
   </div>
-  <div class="control-group">
-    <div class="control-label">
-        <label for="id_password" class="required">{% trans 'Password:' %}</label> 
-    </div>
-    <div class="controls">
-        {{ form.password }}
-        {% if not form.this_is_the_login_form.errors %}<span class="help-inline">{{ form.password.errors|striptags }}</span>{% endif %}
+
+  <div class="form-group">
+    <label class="control-label " for="id_username">Password</label>
+    <div class="">
+        <input class="form-control" id="id_username" maxlength="4096" name="password" type="password" />
+        {% if not form.this_is_the_login_form.errors %}<span class="help-inline">{{ form.username.errors|striptags }}</span>{% endif %}
     </div>
     <input type="hidden" name="this_is_the_login_form" value="1" />
     <input type="hidden" name="next" value="{{ next }}" />
   </div>
+
   {% url 'admin_password_reset' as password_reset_url %}
   {% if password_reset_url %}
   <div class="control-group">
@@ -82,7 +88,7 @@
   </div>
   {% endif %}
   </div>
-  <div class="form-actions">
+  <div class="panel-footer">
     <input type="submit" value="{% trans 'Log in' %}" class="btn btn-primary" />
   </div>
 </form>

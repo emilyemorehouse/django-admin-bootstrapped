@@ -2,8 +2,8 @@
 {% load adminmedia admin_list filermedia filer_tags %}
 {% load url from future %}
 
-<div id="toolbartable">
-    <table cellspacing="0" class="table table-striped">
+<div id="toolbartable" class="table-responsive">
+    <table class="table table-striped">
         <thead>
             <tr class="{% cycle 'row1' 'row2' as rowcolors %}">
                 <th{% if is_popup %} style="width: 3em;"{% else %} class="action-checkbox-column"{% endif %}>{% if paginator.count and not select_folder and not is_popup %}<input type="checkbox" id="action-toggle" />{% endif %}</th>
